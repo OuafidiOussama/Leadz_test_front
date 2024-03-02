@@ -27,7 +27,7 @@ export default function Header() {
                 <p className="flex justify-center items-center w-8 h-10 bg-[#f2547d]">Z</p>
             </NavLink>
         </div>
-        <ul className={`${isMenuOpen ? 'top-20': '-top-80'} text-lg font-semibold py-5 md:py-0 transition-all duration-300 md:top-0 flex gap-5 items-center md:flex-row flex-col w-full md:w-auto bg-indigo-950 md:bg-transparent absolute left-0 md:relative `}>
+        <ul className={`${isMenuOpen ? 'top-20': '-top-80'} text-lg font-semibold py-5 md:py-0 transition-all duration-300 md:top-0 flex gap-5 items-center md:flex-row flex-col w-full md:w-auto bg-indigo-950 md:bg-transparent absolute left-0 md:relative z-10 `}>
             <li>
                 <NavLink className={({isActive})=> (isActive ? 'bg-[#f2547d] py-2 px-4 rounded-md' : 'text-white py-2 px-4 rounded-md' )} to={PathConstants.HOME}>DashBoard</NavLink>
             </li>
