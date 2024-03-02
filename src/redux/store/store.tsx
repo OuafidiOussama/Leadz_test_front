@@ -1,9 +1,11 @@
 import {Action, ThunkAction, configureStore} from '@reduxjs/toolkit'
 import booksReducer from '../features/Books'
+import authorsReducer from '../features/Authors'
 
 export const store = configureStore({
     reducer:{
-        books: booksReducer
+        books: booksReducer,
+        authors: authorsReducer
     },
     middleware: (getDefaultMiddleware)=>
         getDefaultMiddleware({

@@ -1,9 +1,14 @@
+import { Author } from "../../types/author";
 import AuthorCard from "../cards/AuthorCard";
 
-export default function AuthorsContainer() {
+interface Props {
+  authors: Author[]
+}
+
+export default function AuthorsContainer({authors}: Props) {
   return (
     <div className="w-full py-5 flex justify-center flex-wrap gap-5">
-        <AuthorCard />
+        {authors.map(author=><AuthorCard author={author} key={author.id} />)}
     </div>
   )
 }
