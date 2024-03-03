@@ -1,7 +1,27 @@
+import { NavLink } from "react-router-dom";
+import PathConstants from "../../routes/PathConstants";
 
 
 export default function PageNotFound() {
   return (
-    <div>PageNotFound</div>
+    <div className="h-screen w-full flex flex-col justify-center items-center bg-indigo-950">
+      <h1 className="text-9xl font-extrabold text-white tracking-widest">404</h1>
+      <div className="bg-[#FF6A3D] px-2 text-sm rounded rotate-12 absolute">
+        Page Not Found
+      </div>
+      <button className="mt-5">
+          <a
+            className="relative inline-block text-sm font-medium text-[#FF6A3D] group active:text-orange-500 focus:outline-none focus:ring"
+          >
+            <span
+              className="absolute inset-0 transition-transform translate-x-0.5 translate-y-0.5 bg-[#FF6A3D] group-hover:translate-y-0 group-hover:translate-x-0"
+            ></span>
+
+            <span className="relative block px-8 py-3 bg-indigo-950 border border-current">
+              <NavLink className='text-white py-2 px-4 rounded-md' to={PathConstants.BOOKS}>Home</NavLink>
+            </span>
+          </a>
+        </button>
+    </div>
   )
 }

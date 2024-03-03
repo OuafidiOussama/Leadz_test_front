@@ -15,9 +15,9 @@ export default function BookDetailsCard({book}: Props) {
     <div className="flex flex-col items-center md:flex-row py-10 px-0 xl:px-20 gap-5">
         <div className="xl:w-1/3 md:w-1/2 flex justify-center relative items-center">
             <img src={bookCover} alt="" className="w-96 object-contain" />
-            <p className="absolute text-4xl md:text-5xl sm:text-6xl lg:text-6xl font-bold">{title}</p>
+            <p className="absolute text-4xl md:text-5xl sm:text-6xl lg:text-6xl font-bold text-white">{title}</p>
         </div>
-        <div className="xl:w-2/3 md:w-1/2 flex flex-col gap-3 text-center md:text-start bg-gray-100 p-5 rounded-xl">
+        <div className="xl:w-2/3 md:w-1/2 flex flex-col gap-3 text-center md:text-start bg-indigo-50 p-5 rounded-xl">
             <div>
                 <p className="text-xl font-medium">Book Name:</p>
                 <p className="md:pl-10 text-2xl font-large">{title}</p>

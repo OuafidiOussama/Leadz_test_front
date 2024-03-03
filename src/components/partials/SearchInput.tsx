@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { useState } from "react";
 import { searchByTitle } from "../../redux/features/Books";
+import { searchByLastName } from "../../redux/features/Authors";
 
 export default function SearchInput() {
   const {pathname} = useLocation()
@@ -14,8 +15,7 @@ export default function SearchInput() {
       dispatch(searchByTitle(value))
     }
     if(pathname === '/authors'){
-      console.log('search by name');
-      
+      dispatch(searchByLastName(value))
     }
   }
 

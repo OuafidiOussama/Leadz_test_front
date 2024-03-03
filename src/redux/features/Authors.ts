@@ -30,6 +30,13 @@ export const getAuthorById = createAsyncThunk(
         return res.data
     } 
 )
+export const searchByLastName = createAsyncThunk(
+    'books/searchByLastName',
+    async (lastName:string) => {
+        const res = await axios.get<{"hydra:member":Author[]}>(`http://127.0.0.1:8000/api/authors?lastName=${lastName}`)
+        return res.data['hydra:member']
+    }
+)
 
 const AuthorsSlice = createSlice({
     name : 'authors',
@@ -55,6 +62,17 @@ const AuthorsSlice = createSlice({
             state.author = action.payload
         })
         builder.addCase(getAuthorById.rejected, (state, action)=>{
+            state.loading = false
+            state.error = action.error.message
+        })
+        builder.addCase(searchByLastName.pending, (state)=>{
+            state.loading = true
+        })
+        builder.addCase(searchByLastName.fulfilled, (state, action)=>{
+            state.loading = false
+            state.authors = action.payload
+        })
+        builder.addCase(searchByLastName.rejected, (state, action)=>{
             state.loading = false
             state.error = action.error.message
         })
