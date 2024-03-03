@@ -19,8 +19,7 @@ const initialState:BooksState  = {
 export const getBooks = createAsyncThunk(
     'books/getBooks',
     async () => {
-        const res = await axios.get<Book[]>('http://127.0.0.1:8000/api/books')        
-        // console.log(res.data.hydra.member);
+        const res = await axios.get<{"hydra:member":Book[]}>('http://127.0.0.1:8000/api/books')        
         return res.data['hydra:member']
     } 
 )
@@ -30,6 +29,13 @@ export const getBookById = createAsyncThunk(
         const res = await axios.get<Book>(`http://127.0.0.1:8000/api/books/${bookId}`)
         return res.data
     } 
+)
+export const searchByTitle = createAsyncThunk(
+    'books/searchByTitle',
+    async (title:string) => {
+        const res = await axios.get<{"hydra:member":Book[]}>(`http://127.0.0.1:8000/api/books?title=${title}`)
+        return res.data['hydra:member']
+    }
 )
 
 const BooksSlice = createSlice({
@@ -56,6 +62,17 @@ const BooksSlice = createSlice({
             state.book = action.payload
         })
         builder.addCase(getBookById.rejected, (state, action)=>{
+            state.loading = false
+            state.error = action.error.message
+        })
+        builder.addCase(searchByTitle.pending, (state)=>{
+            state.loading = true
+        })
+        builder.addCase(searchByTitle.fulfilled, (state, action)=>{
+            state.loading = false
+            state.books = action.payload
+        })
+        builder.addCase(searchByTitle.rejected, (state, action)=>{
             state.loading = false
             state.error = action.error.message
         })

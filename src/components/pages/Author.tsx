@@ -1,16 +1,16 @@
-import { useDispatch, useSelector } from "react-redux";
 import AuthorsContainer from "../containers/AuthorsContainer";
 import SearchInput from "../partials/SearchInput";
 import { getAuthors, selectAllAuthors } from "../../redux/features/Authors";
 import { RootState } from "../../redux/store/store";
 import { useEffect } from "react";
 import Loading from "../partials/Loading";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 
 
 export default function Author() {
-  const dispatch = useDispatch()
-  const authors = useSelector(selectAllAuthors)
-  const {loading} = useSelector((state:RootState)=>state.authors) 
+  const dispatch = useAppDispatch()
+  const authors = useAppSelector(selectAllAuthors)
+  const {loading} = useAppSelector((state:RootState)=>state.authors) 
   useEffect(()=>{
     dispatch(getAuthors())
   },[])

@@ -19,14 +19,13 @@ const initialState:AuthorsState  = {
 export const getAuthors = createAsyncThunk(
     'books/getAuthors',
     async () => {
-        const res = await axios.get<Author[]>('http://127.0.0.1:8000/api/authors')        
-        // console.log(res.data.hydra.member);
+        const res = await axios.get<{"hydra:member":Author[]}>('http://127.0.0.1:8000/api/authors')        
         return res.data['hydra:member']
     } 
 )
 export const getAuthorById = createAsyncThunk(
     'books/getAuthorById',
-    async (authorId) => {
+    async (authorId:string) => {
         const res = await axios.get<Author>(`http://127.0.0.1:8000/api/authors/${authorId}`)
         return res.data
     } 

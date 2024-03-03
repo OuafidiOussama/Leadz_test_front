@@ -1,17 +1,17 @@
 import { useEffect } from "react";
 import BooksContainer from "../containers/BooksContainer";
 import SearchInput from "../partials/SearchInput";
-import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store/store";
 import { getBooks, selectAllBooks } from "../../redux/features/Books";
 import Loading from "../partials/Loading";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 
 
 
 export default function Book() {
-  const dispatch = useDispatch()
-  const books = useSelector(selectAllBooks)
-  const {loading} = useSelector((state:RootState)=>state.books) 
+  const dispatch = useAppDispatch()
+  const books = useAppSelector(selectAllBooks)
+  const {loading} = useAppSelector((state:RootState)=>state.books) 
   useEffect(()=>{
     dispatch(getBooks())
   },[])

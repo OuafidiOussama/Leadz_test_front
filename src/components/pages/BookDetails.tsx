@@ -1,19 +1,19 @@
 import { useEffect } from "react";
 import BookDetailsCard from "../cards/BookDetailsCard";
 import ReviewsContainer from "../containers/ReviewsContainer";
-import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getBookById, selectAllReviews, selectBookById } from "../../redux/features/Books";
 import { RootState } from "../../redux/store/store";
 import Loading from "../partials/Loading";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 
 export default function BookDetails() {
   
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const {bookId} = useParams()
-  const book = useSelector(selectBookById)
-  const reviews = useSelector(selectAllReviews)
-  const {loading} = useSelector((state:RootState)=>state.books)
+  const book = useAppSelector(selectBookById)
+  const reviews = useAppSelector(selectAllReviews)
+  const {loading} = useAppSelector((state:RootState)=>state.books)
   
   useEffect(()=>{
     dispatch(getBookById(bookId))
@@ -26,9 +26,9 @@ export default function BookDetails() {
       :
       <>
           <h1 className="text-4xl font-bold border-b-2 border-gray-200 text-center py-2">Book Details</h1>
-          <BookDetailsCard book={book} />
+          {book && <BookDetailsCard book={book} />}
           <h2 className="text-4xl font-bold border-b-2 border-gray-200 text-center py-2">Reviews</h2>
-          <ReviewsContainer reviews={reviews} />
+          {reviews && <ReviewsContainer reviews={reviews} />}
       </>
     }
     </div>
