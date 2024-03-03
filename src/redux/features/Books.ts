@@ -25,7 +25,7 @@ export const getBooks = createAsyncThunk(
 )
 export const getBookById = createAsyncThunk(
     'books/getBookById',
-    async (bookId) => {
+    async (bookId:string) => {
         const res = await axios.get<Book>(`http://127.0.0.1:8000/api/books/${bookId}`)
         return res.data
     } 

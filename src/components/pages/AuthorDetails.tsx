@@ -25,9 +25,9 @@ export default function AuthorDetails() {
       <Loading />
       :
       <>
-        {author && <AuthorDetailsCard author={author}/>}
+        {author ? <AuthorDetailsCard author={author}/> : <p className="text-center">There's nothing to show</p>}
         <h2 className="text-4xl font-bold border-b-2 border-gray-200 text-center py-2">Written Books</h2>
-        {books && <BooksContainer books={books} />}
+        {books ? <BooksContainer books={books} /> : <p className="text-center">There's nothing to show</p>}
       </>
     }
     </div>

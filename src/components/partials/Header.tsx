@@ -19,7 +19,7 @@ export default function Header() {
             >
             <Icon icon="material-symbols:menu" className="h-9 w-9" />
             </button>
-            <NavLink className='flex gap-2 font-black text-white text-2xl' to={PathConstants.HOME}>
+            <NavLink className='flex gap-2 font-black text-white text-2xl' to={PathConstants.BOOKS}>
                 <p className="flex justify-center items-center w-8 h-10 bg-[#f2547d]">L</p>
                 <p className="flex justify-center items-center w-8 h-10 bg-[#f2547d]">E</p>
                 <p className="flex justify-center items-center w-8 h-10 bg-[#f2547d]">A</p>
