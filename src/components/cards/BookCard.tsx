@@ -20,15 +20,15 @@ export default function BookCard({book}: Props) {
   
   
   return (
-    <div className="h-80 w-64 border-2 overflow-clip rounded-xl cursor-pointer" onClick={handleNavigation} >
-      <div className="relative flex justify-center items-center h-1/2 overflow-clip hover:h-full transition-all duration-300 ">
-        <img src={bookCover} alt="" className="h-80 w-full object-fit" />
-        <p className="absolute text-white text-3xl">{title}</p>
+    <div data-cy="container" className="h-80 w-64 border-2 overflow-clip rounded-xl cursor-pointer" onClick={handleNavigation} >
+      <div data-cy="cover-container" className="relative flex justify-center items-center h-1/2 overflow-clip hover:h-full transition-all duration-300 ">
+        <img data-cy="cover" src={bookCover} alt="" className="h-80 w-full object-fit" />
+        <p data-cy="book-title" className="absolute text-white text-3xl">{title}</p>
       </div>
-      <div className="flex h-1/2 flex-col justify-center items-center gap-3 border-2">
-        <p className="font-bold text-xl">{author ? fullName: '' }</p>
-        <p>{publishedAt}</p>
-        <p >{genre}</p>
+      <div data-cy="info-container" className="flex h-1/2 flex-col justify-center items-center gap-3 border-2">
+        <p data-cy="book-author" className="font-bold text-xl">{author ? fullName: '' }</p>
+        <p data-cy="book-publicationDate">{publishedAt}</p>
+        <p data-cy="book-genre" >{genre}</p>
       </div>
     </div>
   )

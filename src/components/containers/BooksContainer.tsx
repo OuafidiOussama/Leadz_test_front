@@ -8,12 +8,12 @@ interface Props {
 
 export default function BooksContainer({books}: Props) {
   return (
-    <div className="w-full py-5 flex justify-center flex-wrap gap-5">
+    <div data-cy="books-container" className="w-full py-5 flex justify-center flex-wrap gap-5">
       {
         books.length === 0 ?
         <div className='flex items-center gap-2'>
-          <p className='text-2xl font-bold'>There's no Books Yet!</p>
-          <Icon icon="mdi:emoticon-cry" className='text-3xl'/>
+          <p data-cy="message" className='text-2xl font-bold'>There is no Books Yet!</p>
+          <Icon data-cy="no-books-icon" icon="mdi:emoticon-cry" className='text-3xl'/>
         </div>
       : 
         books?.map((book)=> <BookCard book={book} key={book.id} />)

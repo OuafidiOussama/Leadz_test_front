@@ -12,8 +12,8 @@ export default function ReviewsContainer({reviews}: Props) {
       {
         reviews.length === 0 ?
         <div className='flex items-center gap-2'>
-          <p className='text-2xl font-bold'>This Book has no Reviews</p>
-          <Icon icon="mdi:emoticon-cry" className='text-3xl'/>
+          <p data-cy="message" className='text-2xl font-bold'>This Book has no Reviews</p>
+          <Icon data-cy="no-reviews-icon" icon="mdi:emoticon-cry" className='text-3xl'/>
         </div>
         :
         reviews?.map(review => <ReviewCard review={review} key={review.id} />)

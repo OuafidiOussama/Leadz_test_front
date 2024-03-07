@@ -13,7 +13,6 @@ export default function AuthorDetails() {
   const author = useAppSelector(selectAuthorById)
   const books = useAppSelector(selectAllBooks)
   const {loading} = useAppSelector((state:RootState)=>state.authors)
-  
   useEffect(()=>{
     if (authorId) {
       dispatch(getAuthorById(authorId))

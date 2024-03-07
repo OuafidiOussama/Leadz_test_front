@@ -1,0 +1,30 @@
+{
+  "hydra:member":[
+    {
+      "id": 1,
+      "author": {
+        "id": 1,
+        "firstName": "John",
+        "lastName": "Doe"
+      },
+      "genre": "test-genre1",
+      "publishedAt": "06-03-2024",
+      "title": "test-title1",
+      "description": "test-description-some Description for the Book1",
+      "reviews": []
+    },
+    {
+      "id": 2,
+      "author": {
+        "id": 1,
+        "firstName": "John",
+        "lastName": "Doe"
+      },
+      "genre": "test-genre2",
+      "publishedAt": "06-03-2024",
+      "title": "test-title2",
+      "description": "test-description-some Description for the Book2",
+      "reviews": []
+    }
+]
+}
