@@ -44,7 +44,7 @@ npm run dev
 ```
 
 #### 5. if you didn't clone the API repository Please Check the README down bellow:
-`https://github.com/OuafidiOussama/leadz_test_API/blob/master/README.md#installation`
+- [API_Installation](https://github.com/OuafidiOussama/leadz_test_API/blob/master/README.md#installation)
 
 ## Packages Used :
 
@@ -59,6 +59,6 @@ npm run dev
 
 ## Where Everything is Resumed: 
 A general document Holding all the tasks (obligatory and bonus)
-`https://hackmd.io/GeZNDoHPSNOvsAkz3Zsp0w`
+- [HackMd.io](https://hackmd.io/GeZNDoHPSNOvsAkz3Zsp0w)
 
 
